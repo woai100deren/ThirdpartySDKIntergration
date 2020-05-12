@@ -14,6 +14,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //个推初始化
+        com.igexin.sdk.PushManager.getInstance().initialize(this);
+
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         findViewById(R.id.hello).setOnClickListener(new View.OnClickListener() {

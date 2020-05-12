@@ -12,5 +12,8 @@ public class MyApplication extends Application {
         JMLinkAPI.getInstance().setDebugMode(true);
         JMLinkAPI.getInstance().init(getApplicationContext());
         JMLinkAPI.getInstance().registerWithAnnotation();//开启注解绑定
+
+        //个推初始化
+        com.igexin.sdk.PushManager.getInstance().initialize(this);
     }
 }

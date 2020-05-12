@@ -4,7 +4,15 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+    <!-- 以下是个推权限 -->
+    <!-- iBeancon 功能所需权限 -->
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <!-- 个推电子围栏功能所需权限 -->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:name=".MyApplication"
@@ -35,6 +43,16 @@
         <meta-data
             android:name="JPUSH_CHANNEL"
             android:value="${JPUSH_CHANNEL}" />
+
+        <!-- 个推服务-->
+        <service
+            android:name=".services.GeTuiPushService"
+            android:exported="true"
+            android:label="PushService"
+            android:process=":pushservice"/>
+        <service
+            android:name=".services.GeTuiIntentService"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
     </application>
 
 </manifest>
